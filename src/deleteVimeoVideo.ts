@@ -1,20 +1,20 @@
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 import { authHeaders } from './utils';
 
 /**
  * Delete a vimeo video.
  * @param videoId The video id for an existing video.
- * @returns The deletion status.
+ * @returns A promise that resolves to a status of 'success' or throws an error.
  */
-const deleteVimeoVideo = async (videoId: string) => {
+const deleteVimeoVideo = async (videoId: string): Promise<string> => {
   try {
-    const response: AxiosResponse = await axios.delete(`https://api.vimeo.com/videos/${videoId}`, {
+    await axios.delete(`https://api.vimeo.com/videos/${videoId}`, {
       headers: authHeaders,
     });
 
-    return response.data;
-  } catch (err) {
-    throw new Error('Sorry! Failed to reach Vimeo at the moment');
+    return 'success';
+  } catch (err: any) {
+    throw new Error(err.message || 'Sorry! Failed to reach Vimeo at the moment');
   }
 };
 

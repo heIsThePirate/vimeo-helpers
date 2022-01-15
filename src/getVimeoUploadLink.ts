@@ -28,8 +28,8 @@ const getVimeoUploadLink = async (blobSize: number = 0, name: string = 'Untitled
     uploadLink = response.data.upload.upload_link;
     videoUrl = response.data.link;
     uri = response.data.uri;
-  } catch (err) {
-    throw new Error('Sorry! Failed to reach Vimeo at the moment');
+  } catch (err: any) {
+    throw new Error(err.message || 'Sorry! Failed to reach Vimeo at the moment');
   }
 
   return { uploadLink, uri, videoUrl };

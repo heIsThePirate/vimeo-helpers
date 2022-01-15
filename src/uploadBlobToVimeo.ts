@@ -5,7 +5,7 @@ import { patchHeaders } from './utils';
  * Upload a blob to Vimeo (using the TUS resumable approach).
  * @param blob The blob to upload.
  * @param uploadLink The upload link from Vimeo.
- * @returns The upload status (or error).
+ * @returns A promise that resolves to the upload status or throws an error.
  */
 const uploadBlobToVimeo = async (blob: Blob, uploadLink: string): Promise<string> => {
   try {
@@ -29,8 +29,8 @@ const uploadBlobToVimeo = async (blob: Blob, uploadLink: string): Promise<string
     }
 
     return 'success';
-  } catch (err) {
-    throw new Error('Sorry! Failed to reach Vimeo at the moment');
+  } catch (err: any) {
+    throw new Error(err.message || 'Sorry! Failed to reach Vimeo at the moment');
   }
 };
 
