@@ -25,6 +25,10 @@ module.exports = {
     indent: ['error', 2],
     'no-multi-spaces': ['error'],
     'max-len': ['error', { code: 150 }],
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['error'],
+    'no-shadow': 'off',
+    '@typescript-eslint/no-shadow': ['error'],
     'import/extensions': [
       'error',
       'ignorePackages',
