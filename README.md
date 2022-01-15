@@ -22,7 +22,7 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">vimeo_helpers</h3>
+<h3 align="center">vimeo-helpers</h3>
 
   <p align="center">
     A set of helper functions for uploading and managing videos on Vimeo.
@@ -39,6 +39,7 @@
 
 
 <!-- TABLE OF CONTENTS -->
+<br />
 <details>
   <summary>Table of Contents</summary>
   <ol>
@@ -55,6 +56,7 @@
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
+<br />
 
 
 <!-- GETTING STARTED -->
@@ -74,7 +76,7 @@ yarn add vimeo-helpers
 
 * Create a `.env` file in the root directory of your project and put the previously obtained access token in it.
 ```sh
-    VIMEO_ACCESS_TOKEN=<YOUR_TOKEN>
+VIMEO_ACCESS_TOKEN=<YOUR_TOKEN>
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -84,7 +86,21 @@ yarn add vimeo-helpers
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-TBA
+```javascript
+import { getVimeoUploadLink, uploadBlobToVimeo } from 'vimeo-helpers';
+
+...
+...
+try {
+    const { uploadLink, videoUrl } = await getVimeoUploadLink(videoSizeInBytes, "My awesome video");
+
+    const uploadResponse = await uploadBlobToVimeo(uploadLink, videoBlob);
+} catch (error) {
+    console.error(error);
+}
+...
+...
+```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -162,7 +178,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@strawhat_Mohit](https://twitter.com/strawhat_Mohit) - mohitsingh1997@gmail.com
+[@heIsThePirate](mohitsingh1997@gmail.com)
 
 Project Link: [https://github.com/heIsThePirate/vimeo-helpers](https://github.com/heIsThePirate/vimeo-helpers)
 

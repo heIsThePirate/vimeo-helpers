@@ -7,7 +7,7 @@ import { patchHeaders } from './utils';
  * @param uploadLink The upload link from Vimeo.
  * @returns A promise that resolves to the upload status or throws an error.
  */
-const uploadBlobToVimeo = async (blob: Blob, uploadLink: string): Promise<string> => {
+const uploadBlobToVimeo = async (uploadLink: string, blob: Blob): Promise<string> => {
   try {
     let response = await axios.patch(uploadLink, {
       headers: patchHeaders,
